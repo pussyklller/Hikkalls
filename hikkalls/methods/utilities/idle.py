@@ -7,7 +7,7 @@ from signal import signal as signal_fn
 from signal import SIGTERM
 
 
-py_logger = logging.getLogger('pytgcalls_hikka')
+py_logger = logging.getLogger('hikkalls')
 
 is_idling = False
 

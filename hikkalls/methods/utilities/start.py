@@ -1,6 +1,6 @@
 import asyncio
 
-from ...exceptions import PyTgCallsAlreadyRunning
+from ...exceptions import HikkaLlsSAlreadyRunning
 from ...scaffold import Scaffold
 
 

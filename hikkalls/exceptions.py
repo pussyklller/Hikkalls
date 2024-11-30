@@ -162,7 +162,7 @@ class TelegramServerError(Exception):
         )
 
 
-class HikkaLSAlreadyRunning(Exception):
+class HikkaLlsAlreadyRunning(Exception):
     """PyTgCalls client is already running, raised by
     :meth:`~hikkalls.PyTgCalls.start`,
     """
