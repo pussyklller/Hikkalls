@@ -1,6 +1,6 @@
 import asyncio
 
-from ...exceptions import HikkaLlsSAlreadyRunning
+from ...exceptions import HikkaLlsAlreadyRunning
 from ...scaffold import Scaffold
 
 
