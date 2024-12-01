@@ -35,7 +35,7 @@ class GetCall(Scaffold):
                 from hikkalls import idle
                 ...
 
-                app = PyTgCalls(client1)
+                app = HikkaLls(client1)
                 app.start()
 
                 ...  # Call API methods

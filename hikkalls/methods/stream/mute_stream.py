@@ -29,7 +29,7 @@ class MuteStream(Scaffold):
                 to call this method without any MtProto client
             NodeJSNotRunning: In case you try
                 to call this method without do
-                :meth:`~hikkalls.PyTgCalls.start` before
+                :meth:`~hikkalls.HikkaLls.start` before
             NotInGroupCallError: In case you try
                 to leave a non-joined group call
 
@@ -41,7 +41,7 @@ class MuteStream(Scaffold):
                 from hikkalls import idle
                 ...
 
-                app = PyTgCalls(client)
+                app = HikkaLls(client)
                 app.start()
 
                 ...  # Call API methods

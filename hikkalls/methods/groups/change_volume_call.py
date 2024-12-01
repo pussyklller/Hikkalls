@@ -29,7 +29,7 @@ class ChangeVolumeCall(Scaffold):
                 to call this method without any MtProto client
             NodeJSNotRunning: In case you try
                 to call this method without do
-                :meth:`~hikkalls.PyTgCalls.start` before
+                :meth:`~hikkalls.HikkaLls.start` before
             NoActiveGroupCall: In case you try
                 to edit a not started group call
 
@@ -37,11 +37,11 @@ class ChangeVolumeCall(Scaffold):
             .. code-block:: python
                 :emphasize-lines: 10-13
 
-                from hikkalls import Client
-                from hikkalls import idle
+                from HikkaLls import Client
+                from HikkaLls import idle
                 ...
 
-                app = PyTgCalls(client)
+                app = HikkaLlsclient)
                 app.start()
 
                 ...  # Call API methods

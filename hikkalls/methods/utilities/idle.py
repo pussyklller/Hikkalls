@@ -25,7 +25,7 @@ async def idle():
     script execution and prevent it from exiting while having client(s)
     that are still running in the background.
 
-    The way PyTgCalls works, it will keep your handlers in a pool of
+    The way HikkaLls works, it will keep your handlers in a pool of
     worker threads, which are executed concurrently outside the main
     thread; calling idle() will ensure the client(s) will be kept alive
     by not letting the main script to end, until you decide to quit.
@@ -41,9 +41,9 @@ async def idle():
             from hikkalls import idle
             ...
 
-            app1 = PyTgCalls(client1)
-            app2 = PyTgCalls(client2)
-            app3 = PyTgCalls(client3)
+            app1 = HikkaLls(client1)
+            app2 = HikkaLls(client2)
+            app3 = HikkaLls(client3)
 
             ...  # Set handlers up
 

@@ -1,4 +1,4 @@
-from pytgcalls_hikka.scaffold import Scaffold
+from hikkalls.scaffold import Scaffold
 
 
 class CachePeer(Scaffold):

@@ -22,7 +22,7 @@ from ...types.input_stream import VideoPiped
 from ...types.input_stream.audio_image_piped import AudioImagePiped
 from ...types.session import Session
 
-py_logger = logging.getLogger('pytgcalls_hikka')
+py_logger = logging.getLogger('hikkalls')
 
 
 class ChangeStream(Scaffold):
@@ -52,7 +52,7 @@ class ChangeStream(Scaffold):
                 to call this method without any MtProto client
             NodeJSNotRunning: In case you try
                 to call this method without do
-                :meth:`~hikkalls.PyTgCalls.start` before
+                :meth:`~hikkalls.HikkaLls.start` before
             NoActiveGroupCall: In case you try
                 to edit a not started group call
             FileNotFoundError: In case you try
@@ -82,7 +82,7 @@ class ChangeStream(Scaffold):
                 from hikkalls import idle
                 ...
 
-                app = PyTgCalls(client)
+                app = HikkaLls(client)
                 app.start()
 
                 ...  # Call API methods

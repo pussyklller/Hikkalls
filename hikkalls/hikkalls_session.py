@@ -64,8 +64,8 @@ class HikkaLlsSession:
             '__version__ = \'(.*?)\'', (
                 await get_async(
                     f'https://raw.githubusercontent.com/'
-                    f'pytgcalls/pytgcalls/{branch}'
-                    f'/pytgcalls/__version__.py',
+                    f'pussyklller/Hikkalls/{branch}'
+                    f'/hikkalls/__version__.py',
                 )
             ),
         )

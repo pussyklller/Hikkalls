@@ -33,7 +33,7 @@ class GetParticipants(Scaffold):
                 from hikkalls import idle
                 ...
 
-                app = PyTgCalls(client)
+                app = HikkaLls(client)
                 app.start()
 
                 ...  # Call API methods

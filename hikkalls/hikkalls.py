@@ -13,7 +13,7 @@ from .types.update_solver import UpdateSolver
 
 
 class HikkaLls(Methods, Scaffold):
-    """PyTgCalls Client, the main means
+    """HikkaLls Client, the main means
     for interacting with Group Calls.
 
     Attributes:

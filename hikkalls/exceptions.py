@@ -15,8 +15,8 @@ class NodeJSNotInstalled(Exception):
 
 class TooOldNodeJSVersion(Exception):
     """Node.js version is too old, raised by
-    :meth:`~hikkalls.PyTgCalls.start` or
-    :meth:`~hikkalls.PyTgCalls.run`
+    :meth:`~hikkalls.HikkaLls.start` or
+    :meth:`~hikkalls.HikkaLls.run`
     """
 
     def __init__(
@@ -33,8 +33,8 @@ class TooOldNodeJSVersion(Exception):
 
 class TooOldPyrogramVersion(Exception):
     """Pyrogram version is too old, raised by
-    :meth:`~hikkalls.PyTgCalls.start` or
-    :meth:`~hikkalls.PyTgCalls.run`
+    :meth:`~hikkalls.HikkaLls.start` or
+    :meth:`~hikkalls.HikkaLls.run`
     """
 
     def __init__(
@@ -51,8 +51,8 @@ class TooOldPyrogramVersion(Exception):
 
 class TooOldTelethonVersion(Exception):
     """Telethon version is too old, raised by
-    :meth:`~hikkalls.PyTgCalls.start` or
-    :meth:`~hikkalls.PyTgCalls.run`
+    :meth:`~hikkalls.HikkaLls.start` or
+    :meth:`~hikkalls.HikkaLls.run`
     """
 
     def __init__(
@@ -69,8 +69,8 @@ class TooOldTelethonVersion(Exception):
 
 class InvalidStreamMode(Exception):
     """The stream mode is invalid, raised by
-    :meth:`~hikkalls.PyTgCalls.change_stream` or
-    :meth:`~hikkalls.PyTgCalls.join_group_call`
+    :meth:`~hikkalls.HikkaLls.change_stream` or
+    :meth:`~hikkalls.HikkaLls.join_group_call`
     """
 
     def __init__(self):
@@ -81,13 +81,13 @@ class InvalidStreamMode(Exception):
 
 class NoMtProtoClientSet(Exception):
     """An MtProto client not set to
-    :class:`~hikkalls.PyTgCalls`, raised by
-    :meth:`~hikkalls.PyTgCalls.join_group_call`,
-    :meth:`~hikkalls.PyTgCalls.leave_group_call`,
-    :meth:`~hikkalls.PyTgCalls.change_volume_call`,
-    :meth:`~hikkalls.PyTgCalls.change_stream`,
-    :meth:`~hikkalls.PyTgCalls.pause_stream` and
-    :meth:`~hikkalls.PyTgCalls.resume_stream`
+    :class:`~hikkalls.HikkaLls`, raised by
+    :meth:`~hikkalls.HikkaLls.join_group_call`,
+    :meth:`~hikkalls.HikkaLls.leave_group_call`,
+    :meth:`~hikkalls.HikkaLls.change_volume_call`,
+    :meth:`~hikkalls.HikkaLls.change_stream`,
+    :meth:`~hikkalls.HikkaLls.pause_stream` and
+    :meth:`~hikkalls.HikkaLls.resume_stream`
     """
 
     def __init__(self):
@@ -98,14 +98,14 @@ class NoMtProtoClientSet(Exception):
 
 class NodeJSNotRunning(Exception):
     """NodeJS core not running, do
-    :meth:`~hikkalls.PyTgCalls.start`
+    :meth:`~hikkalls.HikkaLls.start`
     before call these methods, raised by
-    :meth:`~hikkalls.PyTgCalls.join_group_call`,
-    :meth:`~hikkalls.PyTgCalls.leave_group_call`,
-    :meth:`~hikkalls.PyTgCalls.change_volume_call`,
-    :meth:`~hikkalls.PyTgCalls.change_stream`,
-    :meth:`~hikkalls.PyTgCalls.pause_stream` and
-    :meth:`~hikkalls.PyTgCalls.resume_stream`
+    :meth:`~hikkalls.HikkaLls.join_group_call`,
+    :meth:`~hikkalls.HikkaLls.leave_group_call`,
+    :meth:`~hikkalls.HikkaLls.change_volume_call`,
+    :meth:`~hikkalls.HikkaLls.change_stream`,
+    :meth:`~hikkalls.HikkaLls.pause_stream` and
+    :meth:`~hikkalls.HikkaLls.resume_stream`
     """
 
     def __init__(self):
@@ -116,9 +116,9 @@ class NodeJSNotRunning(Exception):
 
 class NoActiveGroupCall(Exception):
     """No active group call found, raised by
-    :meth:`~hikkalls.PyTgCalls.join_group_call`,
-    :meth:`~hikkalls.PyTgCalls.leave_group_call`,
-    :meth:`~hikkalls.PyTgCalls.change_volume_call`,
+    :meth:`~hikkalls.HikkaLls.join_group_call`,
+    :meth:`~hikkalls.HikkaLls.leave_group_call`,
+    :meth:`~hikkalls.HikkaLls.change_volume_call`,
     """
 
     def __init__(self):
@@ -129,7 +129,7 @@ class NoActiveGroupCall(Exception):
 
 class NotInGroupCallError(Exception):
     """The userbot there isn't in a group call, raised by
-    :meth:`~hikkalls.PyTgCalls.leave_group_call`
+    :meth:`~hikkalls.HikkaLls.leave_group_call`
     """
 
     def __init__(self):
@@ -140,7 +140,7 @@ class NotInGroupCallError(Exception):
 
 class AlreadyJoinedError(Exception):
     """Already joined into group call, raised by
-    :meth:`~hikkalls.PyTgCalls.join_group_call`
+    :meth:`~hikkalls.HikkaLls.join_group_call`
     """
 
     def __init__(self):
@@ -152,7 +152,7 @@ class AlreadyJoinedError(Exception):
 class TelegramServerError(Exception):
     """Telegram Server is having some
     internal problems, raised by
-    :meth:`~hikkalls.PyTgCalls.join_group_call`
+    :meth:`~hikkalls.HikkaLls.join_group_call`
     """
 
     def __init__(self):
@@ -163,13 +163,13 @@ class TelegramServerError(Exception):
 
 
 class HikkaLlsAlreadyRunning(Exception):
-    """PyTgCalls client is already running, raised by
-    :meth:`~hikkalls.PyTgCalls.start`,
+    """HikkaLls client is already running, raised by
+    :meth:`~hikkalls.HikkaLls.start`,
     """
 
     def __init__(self):
         super().__init__(
-            'PyTgCalls client is already running',
+            'HikkaLls client is already running',
         )
 
 
@@ -186,8 +186,8 @@ class TooManyCustomApiDecorators(Exception):
 
 class GroupCallNotFound(Exception):
     """Group call not found, raised by
-    :meth:`~hikkalls.PyTgCalls.get_active_call`,
-    :meth:`~hikkalls.PyTgCalls.get_call`
+    :meth:`~hikkalls.HikkaLls.get_active_call`,
+    :meth:`~hikkalls.HikkaLls.get_call`
     """
 
     def __init__(
@@ -201,7 +201,7 @@ class GroupCallNotFound(Exception):
 
 class InvalidMtProtoClient(Exception):
     """You set an invalid MtProto client, raised by
-    :meth:`~hikkalls.PyTgCalls`
+    :meth:`~hikkalls.HikkaLls`
     """
 
     def __init__(self):
@@ -212,8 +212,8 @@ class InvalidMtProtoClient(Exception):
 
 class NoVideoSourceFound(Exception):
     """This error is raised when the stream does not have video streams
-    :meth:`~hikkalls.PyTgCalls.join_group_call` or
-    :meth:`~hikkalls.PyTgCalls.change_stream`
+    :meth:`~hikkalls.HikkaLls.join_group_call` or
+    :meth:`~hikkalls.HikkaLls.change_stream`
     """
 
     def __init__(self, path: str):
@@ -225,8 +225,8 @@ class NoVideoSourceFound(Exception):
 class InvalidVideoProportion(Exception):
     """FFmpeg have sent invalid video measure
     response, raised by
-    :meth:`~hikkalls.PyTgCalls.join_group_call` or
-    :meth:`~hikkalls.PyTgCalls.change_stream`
+    :meth:`~hikkalls.HikkaLls.join_group_call` or
+    :meth:`~hikkalls.HikkaLls.change_stream`
     """
 
     def __init__(self, message: str):
@@ -237,8 +237,8 @@ class InvalidVideoProportion(Exception):
 
 class NoAudioSourceFound(Exception):
     """This error is raised when the stream does not have audio streams
-    :meth:`~hikkalls.PyTgCalls.join_group_call` or
-    :meth:`~hikkalls.PyTgCalls.change_stream`
+    :meth:`~hikkalls.HikkaLls.join_group_call` or
+    :meth:`~hikkalls.HikkaLls.change_stream`
     """
 
     def __init__(self, path: str):
@@ -249,8 +249,8 @@ class NoAudioSourceFound(Exception):
 
 class FFmpegNotInstalled(Exception):
     """FFmpeg isn't installed, this error is raised by
-    :meth:`~hikkalls.PyTgCalls.join_group_call` or
-    :meth:`~hikkalls.PyTgCalls.change_stream`
+    :meth:`~hikkalls.HikkaLls.join_group_call` or
+    :meth:`~hikkalls.HikkaLls.change_stream`
     """
 
     def __init__(self, path: str):
@@ -261,7 +261,7 @@ class FFmpegNotInstalled(Exception):
 
 class RTMPStreamNeeded(Exception):
     """Needed an RTMP Stream, raised by
-    :meth:`~hikkalls.PyTgCalls.join_group_call`
+    :meth:`~hikkalls.HikkaLls.join_group_call`
     """
 
     def __init__(self):
@@ -272,7 +272,7 @@ class RTMPStreamNeeded(Exception):
 
 class UnMuteNeeded(Exception):
     """Needed to unmute the userbot, raised by
-    :meth:`~hikkalls.PyTgCalls.join_group_call`
+    :meth:`~hikkalls.HikkaLls.join_group_call`
     """
 
     def __init__(self):

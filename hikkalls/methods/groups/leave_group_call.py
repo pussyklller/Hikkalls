@@ -30,7 +30,7 @@ class LeaveGroupCall(Scaffold):
                 to call this method without any MtProto client
             NodeJSNotRunning: In case you try
                 to call this method without do
-                :meth:`~hikkalls.PyTgCalls.start` before
+                :meth:`~hikkalls.HikkaLls.start` before
             NoActiveGroupCall: In case you try
                 to edit a not started group call
             NotInGroupCallError: In case you try
@@ -44,7 +44,7 @@ class LeaveGroupCall(Scaffold):
                 from hikkalls import idle
                 ...
 
-                app = PyTgCalls(client)
+                app = HikkaLls(client)
                 app.start()
 
                 ...  # Call API methods

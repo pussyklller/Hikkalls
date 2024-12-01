@@ -11,7 +11,7 @@ class Start(Scaffold):
         This method start and then connects to the NodeJS core.
 
         Raises:
-            PyTgCallsAlreadyRunning: In case you try
+            HikkaLlsAlreadyRunning: In case you try
                 to start an already started client.
 
         Example:
@@ -37,4 +37,4 @@ class Start(Scaffold):
             self._handle_mtproto()
             await self._start_binding()
         else:
-            raise PyTgCallsAlreadyRunning()
+            raise HikkaLlsSAlreadyRunning()

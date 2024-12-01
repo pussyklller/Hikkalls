@@ -30,7 +30,7 @@ class PlayedTime(Scaffold):
                 to call this method without any MtProto client
             NodeJSNotRunning: In case you try
                 to call this method without do
-                :meth:`~hikkalls.PyTgCalls.start` before
+                :meth:`~hikkalls.HikkaLls.start` before
             NoActiveGroupCall: In case you try
                 to edit a not started group call
         """

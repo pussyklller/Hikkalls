@@ -67,7 +67,7 @@ class CustomApi:
         """Start the Custom Api.
 
         This method start the internal http webserver,
-        this is helpful if you need an API interface to PyTgCalls.
+        this is helpful if you need an API interface to HikkaLls.
 
         Example:
             .. code-block:: python

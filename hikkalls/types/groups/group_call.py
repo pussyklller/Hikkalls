@@ -16,7 +16,7 @@ class GroupCall(PyObject):
         chat_id (``int``):
             Unique identifier of chat.
         binary_status (``int``):
-            PyTgCalls API parameter.
+            HikkaLls API parameter.
     """
 
     def __init__(

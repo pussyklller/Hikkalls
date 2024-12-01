@@ -29,12 +29,12 @@ This project allows making Telegram call using MtProto and WebRTC, this is possi
 #### Example Usage
 
 ```python
-from hikkalls import PyTgCalls
+from hikkalls import HikkaLls
 from hikkalls import idle
 from hikkalls.types import MediaStream
 ...
 chat_id = -1001185324811
-app = PyTgCalls(client)
+app = HikkaLls(client)
 app.start()
 app.play(
     chat_id,

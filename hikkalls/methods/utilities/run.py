@@ -12,7 +12,7 @@ class Run(Scaffold):
         main script, since idle() will block after starting the own client.
 
         Raises:
-            PyTgCallsAlreadyRunning: In case you try
+            HikkaLlsAlreadyRunning: In case you try
                 to start an already started client.
 
         Example:

@@ -12,7 +12,7 @@ class GetMaxVoiceChat(Scaffold):
 
         Parameters:
             consumption (``int``, **optional**):
-                Estimated PyTgCalls consumption of Core x Single Group Call
+                Estimated HikkaLls consumption of Core x Single Group Call
 
         Returns:
             ``int`` - Max number of group calls can be started
