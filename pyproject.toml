@@ -38,7 +38,7 @@ nodejs = ["nodejs>=18.0.0"]
 
 [project.urls]
 Homepage = "https://pytgcalls.github.io/"
-Repository = "https://github.com/pussyklller/pytgcalls_hikka.git"
+Repository = "https://github.com/pussyklller/hikkalls.git"
 Documentation = "https://pytgcalls.github.io/PyTgCalls"
 Changelog = "https://pytgcalls.github.io/PyTgCalls/Changelogs"
 
