@@ -134,8 +134,8 @@ jobs:
           path: tmp/
       - name: Extract artifacts
         run: |
-          md dist
-          Get-ChildItem -Path .\tmp -Recurse -File | Move-Item -Destination .\dist
+          mkdir dist
+          find tmp -type f -exec mv {} dist/ \;
       - name: Publish to PyPI
         uses: pypa/gh-action-pypi-publish@release/v1
         with:
