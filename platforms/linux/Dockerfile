@@ -1,7 +1,7 @@
 ARG python_version="3.6"
 ARG dname="amd64"
 ARG pname="manylinux2014_x86_64"
-FROM ${dname}/python:${python_version}-buster
+FROM ${dname}/python:${python_version}
 RUN \
   echo "deb https://deb.nodesource.com/node_18.x buster main" > /etc/apt/sources.list.d/nodesource.list && \
   wget -qO- https://deb.nodesource.com/gpgkey/nodesource.gpg.key | apt-key add - && \
