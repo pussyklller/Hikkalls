@@ -72,7 +72,7 @@ jobs:
           python -m pip install twine
 
       - name: Download artifacts
-        uses: actions/download-artifact@v2
+        uses: actions/download-artifact@v3
         with:
           path: tmp/
 
