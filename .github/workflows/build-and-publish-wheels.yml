@@ -60,7 +60,7 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-artifact@v4
         with:
-          name: hikkalls-python-${{ matrix.python-version }}-${{ github.run_id }}
+          name: hikkalls-python-${{ matrix.python-version }}-${{ github.run_id }}-${{ steps.timestamp.outputs.timestamp }}
           path:
             dist/*.whl
   hikkawin-build:
