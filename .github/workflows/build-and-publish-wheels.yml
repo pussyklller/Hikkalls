@@ -118,7 +118,7 @@ jobs:
             dist/*.whl
   
   hikkalls-publish:
-    runs-on: windows-2019
+    runs-on: ubuntu-latest
     needs: [hikkawin-build, hikkalin-build-arm64v8, hikkalin-build-amd64]
     steps:
       - name: Install Python3.8
