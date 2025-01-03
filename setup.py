@@ -119,7 +119,7 @@ with open(os.path.join(base_path, 'README.md'), encoding='utf-8') as f:
 
 setup(
     name='hikkalls',
-    version='0.1.7',
+    version='0.1.8',
     long_description=readme,
     long_description_content_type='text/markdown',
     url='https://github.com/pytgcalls/pytgcalls',
@@ -147,7 +147,7 @@ setup(
         'psutil',
         'screeninfo',
     ],
-    python_requires='>=3.6.1',
+    python_requires='>=3.6',
     include_package_data=True,
     universal=True,
     cmdclass={
