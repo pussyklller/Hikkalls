@@ -19,8 +19,8 @@ jobs:
   pytg-build:
     strategy:
       matrix:
-        python-version: [ '3.7', '3.8', '3.9', '3.10', '3.11', '3.12' ]
-        architecture: [ 'x86_64', 'aarch64', 'armv7l', 'arm64v8' ]
+        python-version: [ '3.8', '3.9', '3.10', '3.11', '3.12' ]
+        architecture: [ 'x86_64', 'aarch64', 'armv7l', 'arm64v8', 'amd64' ]
     runs-on: ubuntu-latest
     steps:
       - name: Get Branch Name
