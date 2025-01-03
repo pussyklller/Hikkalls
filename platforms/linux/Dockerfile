@@ -1,7 +1,7 @@
 ARG python_version="3.6"
 ARG dname="amd64"
 ARG pname="manylinux2014_x86_64"
-FROM ${dname}/python:${python_version}-buster
+FROM ${dname}/python:${python_version}-bullseye
 SHELL ["/bin/bash", "-c"]
 RUN \
   apt-get update && apt-get install -y wget gpg curl && \
