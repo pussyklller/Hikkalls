@@ -18,32 +18,51 @@ on:
   workflow_dispatch:
 
 jobs:
-  hikkalin-build:
+  hikkalin-build-amd64:
     runs-on: ubuntu-20.04
     strategy:
       matrix:
-        arch-image-names: [ 'amd64', 'arm64v8', ]
-        include:
-          - arch-image-names: 'amd64'
-            arch-run-names: 'linux/amd64'
-            build-plat-names: 'manylinux2014_x86_64'
-
-          - arch-image-names: 'arm64v8'
-            arch-run-names: 'linux/arm64/v8'
-            build-plat-names: 'manylinux2014_aarch64'
-        python-version: [ '3.8', '3.9', '3.10', '3.11' ]
+        python-version: [ '3.8', '3.9', '3.10', '3.11', '3.12' ]
     steps:
       - name: Get Branch Name
-        run: echo "::set-output name=branch::${GITHUB_REF#refs/heads/}"
-        id: github_info
-      - name: Checkout ${{ steps.github_info.outputs.branch }}
+        run: echo "branch=${GITHUB_REF#refs/heads/}" >> $GITHUB_ENV
+      - name: Checkout ${{ env.branch }}
         uses: actions/checkout@v4
         with:
-          ref: ${{ steps.github_info.outputs.branch }}
+          ref: ${{ env.branch }}
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
+        with:
+          install: true
+      - name: Build Docker Image (amd64)
+        run: |
+          docker buildx build --load --build-arg pname=manylinux2014_x86_64 --build-arg dname=amd64 --build-arg python_version="${{ matrix.python-version }}" --platform linux/amd64 -t hikkalls_p"${{ matrix.python-version }}":amd64 . -f platforms/linux/Dockerfile
+      - name: Run Docker Container (amd64)
+        run: |
+          docker run --platform linux/amd64 -v "$PWD":/usr/src/mnt hikkalls_p"${{ matrix.python-version }}":amd64 ./linux_mount.sh
+      - name: Get Timestamp
+        run: echo "timestamp=$(date +%s)" >> $GITHUB_ENV
+      - name: Upload artifact (amd64)
+        uses: actions/upload-artifact@v4
+        with:
+          name: hikkalls-python-${{ matrix.python-version }}-amd64-${{ github.run_id }}-${{ env.timestamp }}
+          path: dist/*.whl
+
+  hikkalin-build-arm64v8:
+    runs-on: ubuntu-20.04
+    strategy:
+      matrix:
+        python-version: [ '3.8', '3.9', '3.10', '3.11', '3.12' ]
+    steps:
+      - name: Get Branch Name
+        run: echo "branch=${GITHUB_REF#refs/heads/}" >> $GITHUB_ENV
+      - name: Checkout ${{ env.branch }}
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ env.branch }}
       - name: Set up QEMU
         uses: docker/setup-qemu-action@v3
       - name: Set up Docker Buildx
-        id: buildx
         uses: docker/setup-buildx-action@v3
         with:
           install: true
@@ -51,18 +70,19 @@ jobs:
         run: |
           echo '{"experimental": true}' | sudo tee /etc/docker/daemon.json > /dev/null
           sudo systemctl restart docker
-      - name: Build Docker Image
+      - name: Build Docker Image (arm64v8)
         run: |
-          docker buildx build --load --build-arg pname="${{ matrix.build-plat-names }}" --build-arg dname="${{ matrix.arch-image-names }}" --build-arg python_version="${{ matrix.python-version }}" --platform "${{ matrix.arch-run-names }}" -t hikkalls_p"${{ matrix.python-version }}":"${{ matrix.arch-image-names }}" . -f platforms/linux/Dockerfile
-      - name: Run Docker Container
+          docker buildx build --load --build-arg pname=manylinux2014_aarch64 --build-arg dname=arm64v8 --build-arg python_version="${{ matrix.python-version }}" --platform linux/arm64/v8 -t hikkalls_p"${{ matrix.python-version }}":arm64v8 . -f platforms/linux/Dockerfile
+      - name: Run Docker Container (arm64v8)
         run: |
-          docker run --platform "${{ matrix.arch-run-names }}" -v "$PWD":/usr/src/mnt hikkalls_p"${{ matrix.python-version }}":"${{ matrix.arch-image-names }}" ./linux_mount.sh
-      - name: Upload artifact
+          docker run --platform linux/arm64/v8 -v "$PWD":/usr/src/mnt hikkalls_p"${{ matrix.python-version }}":arm64v8 ./linux_mount.sh
+      - name: Get Timestamp
+        run: echo "timestamp=$(date +%s)" >> $GITHUB_ENV
+      - name: Upload artifact (arm64v8)
         uses: actions/upload-artifact@v4
         with:
-          name: hikkalls-python-${{ matrix.python-version }}-${{ github.run_id }}-${{ steps.timestamp.outputs.timestamp }}
-          path:
-            dist/*.whl
+          name: hikkalls-python-${{ matrix.python-version }}-arm64v8-${{ github.run_id }}-${{ env.timestamp }}
+          path: dist/*.whl
   hikkawin-build:
     runs-on: windows-2019
     strategy:
@@ -81,7 +101,7 @@ jobs:
         with:
           node-version: 'latest'
       - name: Setup Python${{ matrix.python-version }}
-        uses: actions/setup-python@v4
+        uses: actions/setup-python@v5
         with:
           python-version: ${{ matrix.python-version }}
       - name: Install pip requirements
@@ -99,10 +119,10 @@ jobs:
   
   hikkalls-publish:
     runs-on: windows-2019
-    needs: [hikkalin-build, hikkawin-build]
+    needs: [hikkalin-build, hikkalin-build-arm64v8, hikkalin-build-amd64]
     steps:
       - name: Install Python3.8
-        uses: actions/setup-python@v4
+        uses: actions/setup-python@v5
         with:
           python-version: 3.8
       - name: Install pip requirements
