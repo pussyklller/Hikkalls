@@ -3,15 +3,18 @@ ARG dname="amd64"
 ARG pname="manylinux2014_x86_64"
 FROM ${dname}/python:${python_version}
 RUN \
+  apt-get update && apt-get install -y wget gpg curl && \
   wget -qO- https://deb.nodesource.com/gpgkey/nodesource.gpg.key | gpg --dearmor -o /usr/share/keyrings/nodesource-archive-keyring.gpg && \
   echo "deb [signed-by=/usr/share/keyrings/nodesource-archive-keyring.gpg] https://deb.nodesource.com/node_18.x buster main" > /etc/apt/sources.list.d/nodesource.list && \
-  wget -qO- https://dl.yarnpkg.com/debian/pubkey.gpg | gpg --dearmor -o /usr/share/keyrings/yarn-archive-keyring.gpg && \
+  curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | gpg --dearmor -o /usr/share/keyrings/yarn-archive-keyring.gpg && \
   echo "deb [signed-by=/usr/share/keyrings/yarn-archive-keyring.gpg] https://dl.yarnpkg.com/debian/ stable main" > /etc/apt/sources.list.d/yarn.list && \
   apt-get update && \
   apt-get install -yqq nodejs yarn && \
+  node --version && npm --version && yarn --version && \
   pip install -U pip && pip install pipenv && \
-  npm i -g npm@^8 && \
+  npm install -g npm@^8 && \
   rm -rf /var/lib/apt/lists/*
+WORKDIR /usr/src/hikkalls
 WORKDIR /usr/src/hikkalls
 WORKDIR hikkalls/
 COPY hikkalls/ .
