@@ -119,7 +119,7 @@ jobs:
   
   hikkalls-publish:
     runs-on: windows-2019
-    needs: [hikkalin-build, hikkalin-build-arm64v8, hikkalin-build-amd64]
+    needs: [hikkawin-build, hikkalin-build-arm64v8, hikkalin-build-amd64]
     steps:
       - name: Install Python3.8
         uses: actions/setup-python@v5
