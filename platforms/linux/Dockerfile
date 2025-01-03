@@ -2,6 +2,7 @@ ARG python_version="3.6"
 ARG dname="amd64"
 ARG pname="manylinux2014_x86_64"
 FROM ${dname}/python:${python_version}
+SHELL ["/bin/bash", "-c"]
 RUN \
   apt-get update && apt-get install -y wget gpg curl && \
   wget -qO- https://deb.nodesource.com/gpgkey/nodesource.gpg.key | gpg --dearmor -o /usr/share/keyrings/nodesource-archive-keyring.gpg && \
@@ -14,7 +15,6 @@ RUN \
   pip install -U pip && pip install pipenv && \
   npm install -g npm@^8 && \
   rm -rf /var/lib/apt/lists/*
-WORKDIR /usr/src/hikkalls
 WORKDIR /usr/src/hikkalls
 WORKDIR hikkalls/
 COPY hikkalls/ .
