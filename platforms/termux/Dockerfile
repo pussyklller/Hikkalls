@@ -20,9 +20,10 @@ RUN apt-get update && apt-get install -y \
 RUN wget https://github.com/termux/termux-packages/releases/download/bootstrap/termux-rootfs-21.08.tar.gz -O /termux-rootfs.tar.gz \
     && mkdir /termux \
     && tar -xzf /termux-rootfs.tar.gz -C /termux \
-    && rm /termux-rootfs.tar.gz
+    && rm /termux-rootfs.tar.gz \
+    && mkdir /termux/usr/bin/
 
-COPY /usr/bin/qemu-aarch64-static /usr/bin/
+COPY /usr/bin/qemu-aarch64-static /termux/usr/bin/
 
 WORKDIR /mnt
 
