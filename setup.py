@@ -119,12 +119,11 @@ with open(os.path.join(base_path, 'README.md'), encoding='utf-8') as f:
 
 setup(
     name='hikkalls',
-    version='0.1.10',
+    version='0.1.11',
     long_description=readme,
     long_description_content_type='text/markdown',
-    url='https://github.com/pytgcalls/pytgcalls',
-    author='Laky-64',
-    author_email='iraci.matteo@gmail.com',
+    url='https://github.com/pussykiller/hikkalls',
+    author='Frost_Shard',
     license='LGPL-3.0',
     license_file='LICENSE',
     classifiers=[
