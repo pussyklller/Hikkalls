@@ -48,7 +48,7 @@ jobs:
           name: hikkalls-python-${{ matrix.python-version }}-amd64-${{ github.run_id }}-${{ env.timestamp }}
           path: dist/*.whl
 
-  hikkatmux-build:
+  hikkalin-build-arm32:
     runs-on: ubuntu-20.04
     strategy:
       matrix:
@@ -87,7 +87,7 @@ jobs:
           path:
             dist/*.whl
 
-  hikkalin-build:
+  hikkalin-build-arm64v8:
     runs-on: ubuntu-20.04
     strategy:
       matrix:
@@ -159,7 +159,7 @@ jobs:
 
   hikkalls-publish:
     runs-on: ubuntu-latest
-    needs: [hikkawin-build, hikkalin-build-arm64v8, hikkatmux-build, hikkalin-build-amd64]
+    needs: [hikkawin-build, hikkalin-build-arm64v8, hikkalin-build-arm32, hikkalin-build-amd64]
     steps:
       - name: Install Python3.8
         uses: actions/setup-python@v5
