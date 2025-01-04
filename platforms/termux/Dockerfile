@@ -1,7 +1,7 @@
 FROM debian:bullseye
 
 ARG python_version="3.6"
-ARG pname="manylinux2014_aarch64"
+ARG pname="linux_aarch64"
 
 RUN apt-get update && apt-get install -y \
     wget \
@@ -22,7 +22,7 @@ RUN wget https://github.com/termux/termux-packages/releases/download/bootstrap/t
     && tar -xzf /termux-rootfs.tar.gz -C /termux \
     && rm /termux-rootfs.tar.gz
 
-COPY /usr/bin/qemu-aarch64-static /termux/usr/bin/
+COPY /usr/bin/qemu-aarch64-static /usr/bin/
 
 WORKDIR /mnt
 
