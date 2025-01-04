@@ -77,7 +77,7 @@ hikkalin-build-termux:
           --build-arg pname="manylinux2014_aarch64" \
           --platform linux/arm64/v8 \
           -t hikkalls_p"${{ matrix.python-version }}":termux \
-          -f platforms/termux/Dockerfile.termux .
+          -f platforms/termux/Dockerfile .
     - name: Run Docker Container (Termux)
       run: |
         docker run --platform linux/arm64/v8 \
