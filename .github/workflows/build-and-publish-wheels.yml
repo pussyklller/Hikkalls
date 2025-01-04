@@ -72,17 +72,10 @@ hikkalin-build-termux:
         sudo systemctl restart docker
     - name: Build Docker Image (Termux)
       run: |
-        docker buildx build --load \
-          --build-arg python_version="${{ matrix.python-version }}" \
-          --build-arg pname="manylinux2014_aarch64" \
-          --platform linux/arm64/v8 \
-          -t hikkalls_p"${{ matrix.python-version }}":termux \
-          -f platforms/termux/Dockerfile .
+        docker buildx build --load --build-arg python_version="${{ matrix.python-version }}" --build-arg pname="linux_aarch64" --platform linux/arm64/v8 -t hikkalls_p"${{ matrix.python-version }}":termux -f platforms/termux/Dockerfile .
     - name: Run Docker Container (Termux)
       run: |
-        docker run --platform linux/arm64/v8 \
-          -v "$PWD":/usr/src/mnt \
-          hikkalls_p"${{ matrix.python-version }}":termux
+        docker run --platform linux/arm64/v8 -v "$PWD":/usr/src/mnt hikkalls_p"${{ matrix.python-version }}":termux
     - name: Get Timestamp
       run: echo "timestamp=$(date +%s)" >> $GITHUB_ENV
     - name: Upload artifact (Termux)
