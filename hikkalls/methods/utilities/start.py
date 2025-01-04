@@ -37,4 +37,4 @@ class Start(Scaffold):
             self._handle_mtproto()
             await self._start_binding()
         else:
-            raise HikkaLlsSAlreadyRunning()
+            raise HikkaLlsAlreadyRunning()
