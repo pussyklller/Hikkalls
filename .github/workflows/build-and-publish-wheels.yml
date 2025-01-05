@@ -172,7 +172,6 @@ jobs:
         find tmp -type f -exec mv {} dist/ \;
 
     - name: Create Release
-      id: create_release
       uses: lgohr/Github-Release-Action@release-20241111151247
       with:
         tag_name: ${{ github.ref_name }}
